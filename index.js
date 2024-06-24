@@ -1,4 +1,6 @@
 // *** 1st part *** --------------------------------------------------------
+// Works as expected
+
 // function test(testName, testFn) {
 //     try {
 //         testFn();
@@ -9,15 +11,15 @@
 // }
 
 // break out expect into separate function for cleanliness
-function expect(expectedValue) {
-    return {
-        toBe(actualValue) {
-            if (actualValue !== expectedValue) {
-                throw new Error(`expected '${expectedValue}', received '${actualValue}'`);
-            }
-        },
-    };
-}
+// function expect(expectedValue) {
+//     return {
+//         toBe(actualValue) {
+//             if (actualValue !== expectedValue) {
+//                 throw new Error(`expected '${expectedValue}', received '${actualValue}'`);
+//             }
+//         },
+//     };
+// }
 
 // test('my calm test', () => {
 //     expect('123').toBe('abc');
@@ -39,14 +41,16 @@ function expect(expectedValue) {
 
 
 // *** 2nd part *** ---------------------------------------------------------------
-let beforeEachFn;
+// Works as expected
 
-// when run, set beforeEachFn to the blank Fn to execute
-function beforeEach(beforeTestFn) {
-    beforeEachFn = beforeTestFn;
-}
+// let beforeEachFn;
 
-// function runTest(testName, testFn) {
+// // when run, set beforeEachFn to the blank Fn to execute
+// function beforeEach(beforeTestFn) {
+//     beforeEachFn = beforeTestFn;
+// }
+
+// function test(testName, testFn) {
 //     try {
 //         // if beforeEachFn var exists, then run beforeEach()
 //         if (beforeEachFn) {
@@ -64,16 +68,16 @@ function beforeEach(beforeTestFn) {
 //     expect('🤡').toBe('🤡');
 // })
 
-// runTest('1st test', () => {
+// test('1st test', () => {
 //     expect('be calm').toBe('😇');
 // })
 
-// runTest('2nd test', () => {
+// test('2nd test', () => {
 //     expect(2).toBe(2)
 //     expect(2).toBe(2)
 // })
 
-// runTest('3rd test', () => {
+// test('3rd test', () => {
 //     expect(3).toBe(3)
 //     expect(3).toBe(2)
 //     expect(3).toBe(3)
@@ -86,8 +90,23 @@ function beforeEach(beforeTestFn) {
 // *** 3rd part ***   ----------------------------------------------------------
 // ... still in progress ... 
 
-// const testsToRun = [];
+let beforeEachFn;
 let onlyTest = {}
+
+// when run, set beforeEachFn to the blank Fn to execute
+function beforeEach(beforeTestFn) {
+    beforeEachFn = beforeTestFn;
+}
+
+function expect(expectedValue) {
+    return {
+        toBe(actualValue) {
+            if (actualValue !== expectedValue) {
+                throw new Error(`expected '${expectedValue}', received '${actualValue}'`);
+            }
+        },
+    };
+}
 
 const test = (testName, testFn) => {
     function only(testName, testFn) {
@@ -132,6 +151,8 @@ const test = (testName, testFn) => {
     //     console.error(`X ${testName}: failed with message: ${error.message}`);
     // }
 };
+
+
 
 
 beforeEach(() => {
