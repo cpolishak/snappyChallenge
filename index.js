@@ -64,6 +64,16 @@
 //     }
 // }
 
+// function expect(expectedValue) {
+//     return {
+//         toBe(actualValue) {
+//             if (actualValue !== expectedValue) {
+//                 throw new Error(`expected '${expectedValue}', received '${actualValue}'`);
+//             }
+//         },
+//     };
+// }
+
 // beforeEach(() => {
 //     expect('🤡').toBe('🤡');
 // })
@@ -135,13 +145,6 @@ const test = (testName, testFn) => {
     } catch (error) {
         // console.error(`X ${testName}: failed with message: ${error.message}`);
     }
-
-    // if (test.only) {
-
-    // } else {
-
-    // }
-
     // Below obviously works as expected on all tests, but need to solve the
     // issue of filtering out the test.only executions or jumping to this
     // try {
